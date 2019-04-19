@@ -30,6 +30,7 @@ class MarketState(metaclass=ABCMeta):
 
 
 class BitcoinMarketState(MarketState):
+    # test
     def transition_bullish(self):
         pass
 
