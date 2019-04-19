@@ -1,5 +1,11 @@
+"""
+bitc0in_twitter.state
+---------------------
+
+This module provides functionality dealing with state.
+"""
+
 from abc import ABC, abstractmethod
-import random
 
 
 class State(ABC):
