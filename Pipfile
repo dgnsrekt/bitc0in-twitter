@@ -15,6 +15,9 @@ schedule = "*"
 click = "*"
 appdirs = "*"
 transitions = "*"
+toml = "*"
+luigi = "*"
+prompt-toolkit = "*"
 
 [requires]
 python_version = "3.7"
