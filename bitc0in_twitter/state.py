@@ -8,8 +8,8 @@ class MarketState(metaclass=ABCMeta):
 
     states = ["bullish", "bearish"]
 
-    def __init__(self):
-        self.machine = Machine(model=self, states=MarketState.states, initial="bullish")
+    def __init__(self, initial_state="bullish"):
+        self.machine = Machine(model=self, states=MarketState.states, initial=initial_state)
 
         self.machine.add_transition(trigger="positive", source="bullish", dest="bullish")
         self.machine.add_transition(trigger="negative", source="bearish", dest="bearish")
@@ -31,7 +31,7 @@ class MarketState(metaclass=ABCMeta):
 
 class BitcoinMarketState(MarketState):
     def transition_bullish(self):
-        print("going bullish")
+        pass
 
     def transition_bearish(self):
-        print("going bearish")
+        pass
