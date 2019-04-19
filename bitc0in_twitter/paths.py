@@ -16,18 +16,6 @@ HEADER_BEARISH_PATH = HEADER_PATH / "bearish"
 PROFILE_BULLISH_PATH = PROFILE_PATH / "bullish"
 PROFILE_BEARISH_PATH = PROFILE_PATH / "bearish"
 
-# ALLPATHS = [
-#     BASE_PATH,
-#     CONFIG_PATH,
-#     IMAGE_PATH,
-#     HEADER_PATH,
-#     PROFILE_PATH,
-#     HEADER_BULLISH_PATH,
-#     HEADER_BEARISH_PATH,
-#     PROFILE_BULLISH_PATH,
-#     PROFILE_BEARISH_PATH,
-# ]
-
 
 def check_paths_status():
     """Shows the status of all the above paths."""
