@@ -1,9 +1,4 @@
-"""
-bitc0in_twitter.btc
--------------------
-
-This module provides fuctions to interact with the bitcoin price.
-"""
+# Provides fuctionality to interact with the bitcoin price.
 
 import ccxt
 
