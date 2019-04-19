@@ -3,7 +3,7 @@ import click
 
 @click.group()
 def cli():
-    "Sync your twitter profile with bitcoins of volatility."
+    "Syncs your twitter profile with bitcoin's volatility."
 
 
 @cli.command()
