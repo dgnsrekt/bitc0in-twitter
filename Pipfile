@@ -10,6 +10,10 @@ flake8 = "*"
 
 [packages]
 ccxt = "*"
+tweepy = "*"
+schedule = "*"
+click = "*"
+appdirs = "*"
 
 [requires]
 python_version = "3.7"
