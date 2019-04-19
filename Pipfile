@@ -9,6 +9,7 @@ pytest-watch = "*"
 flake8 = "*"
 
 [packages]
+ccxt = "*"
 
 [requires]
 python_version = "3.7"
