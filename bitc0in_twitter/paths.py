@@ -16,11 +16,27 @@ HEADER_BEARISH_PATH = HEADER_PATH / "bearish"
 PROFILE_BULLISH_PATH = PROFILE_PATH / "bullish"
 PROFILE_BEARISH_PATH = PROFILE_PATH / "bearish"
 
+# ALLPATHS = [
+#     BASE_PATH,
+#     CONFIG_PATH,
+#     IMAGE_PATH,
+#     HEADER_PATH,
+#     PROFILE_PATH,
+#     HEADER_BULLISH_PATH,
+#     HEADER_BEARISH_PATH,
+#     PROFILE_BULLISH_PATH,
+#     PROFILE_BEARISH_PATH,
+# ]
+
+
+def check_paths_status():
+    """Shows the status of all the above paths."""
+    global_variables = globals().copy()
+
+    for key, value in global_variables.items():
+        if "_PATH" in key:
+            print(key, value, value.exists())
+
+
 if __name__ == "__main__":
-    print("BASE_PATH:", BASE_PATH, BASE_PATH.exists())
-    print("CONFIG_PATH:", CONFIG_PATH, CONFIG_PATH.exists())
-    print("IMAGE_PATH:", IMAGE_PATH, IMAGE_PATH.exists())
-    print("HEADER_BULLISH:", HEADER_BULLISH_PATH, HEADER_BULLISH_PATH.exists())
-    print("HEADER_BEARISH:", HEADER_BEARISH_PATH, HEADER_BEARISH_PATH.exists())
-    print("PROFILE_BULLISH_PATH:", PROFILE_BULLISH_PATH, PROFILE_BULLISH_PATH.exists())
-    print("PROFILE_BEARISH_PATH:", PROFILE_BEARISH_PATH, PROFILE_BEARISH_PATH.exists())
+    check_paths_status()
