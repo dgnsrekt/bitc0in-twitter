@@ -1,6 +1,6 @@
 # This module provides functionality dealing with state.
 
-from transitions import Machine, State
+from transitions import Machine
 from abc import abstractmethod, ABCMeta
 
 
