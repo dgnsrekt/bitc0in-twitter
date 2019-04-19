@@ -1,3 +1,3 @@
 # bitc0in-twitter
-https://travis-ci.com/dgnsrekt/bitc0in-twitter.svg?branch=master
+[![Build Status](https://travis-ci.com/dgnsrekt/bitc0in-twitter.svg?branch=master)](https://travis-ci.com/dgnsrekt/bitc0in-twitter)
 Syncs your twitter account with the change in bitcoin price.
