@@ -1,9 +1,6 @@
 from pathlib import Path
-from appdirs import user_config_dir
 
 BASE_PATH = Path(__file__).parent
-
-CONFIG_PATH = Path(user_config_dir(appname=BASE_PATH.name, appauthor="dgnsrekt"))
 
 IMAGE_PATH = BASE_PATH.parent / "images"
 
