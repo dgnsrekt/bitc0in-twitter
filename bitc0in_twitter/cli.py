@@ -39,7 +39,8 @@ def test():
 
 
 @cli.command()
-def config():
+@click.option("--clean", is_flag=True, help="Generates clean config file.")
+def config(clean):
     """Configure the application."""
     print("CONFIGING")
     name = prompt("What is your twitter name?")
