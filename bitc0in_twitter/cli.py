@@ -16,17 +16,8 @@ def run():
 
 @cli.command()
 def test():
-    """Tests the profile/banner images work."""
+    """Tests that all connections work."""
     print("TESTING!!!")
-
-
-@cli.command()
-@click.option("--clean", is_flag=True, help="Generates clean config file.")
-def config(clean):
-    """Configure the application."""
-    print("CONFIGING")
-    name = prompt("What is your twitter name?")
-    print(name)
 
 
 if __name__ == "__main__":
