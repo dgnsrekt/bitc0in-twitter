@@ -35,7 +35,7 @@ def run():
     while True:
         schedule.run_pending()
         sleep(1)
-        print(".", end="", flush=True)
+        # print(".", end="", flush=True)
 
 
 @cli.command()
