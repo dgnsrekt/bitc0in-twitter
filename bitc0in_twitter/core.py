@@ -22,6 +22,11 @@ class BitcoinTwitterProfile(MarketState):
             key=key, secret=secret, token=token, token_secret=token_secret
         )
 
+        if self.state == "bearish":
+            self.transition_bearish()
+        else:
+            self.transition_bullish()
+
     @staticmethod
     def get_market_state(bitcoin_percent_change):
         if bitcoin_percent_change < 0:

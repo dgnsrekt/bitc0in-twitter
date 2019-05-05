@@ -30,7 +30,7 @@ def run():
         else:
             profile.pumping()
 
-    schedule.every(1).minutes.do(job)
+    schedule.every(10).minutes.do(job)
 
     while True:
         schedule.run_pending()
@@ -51,6 +51,8 @@ def test():
     bms.pumping()
     print("check the for bullish profile")
     print("state:", bms.state)
+    sleep(15)
+    bms.dumping()
 
 
 if __name__ == "__main__":
