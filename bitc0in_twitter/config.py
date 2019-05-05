@@ -1,61 +1,87 @@
-from pathlib import Path
-import toml
+from decouple import config, UndefinedValueError
+from utilities import check_image_dimensions, check_image_file_size, check_rgb_format
+
+from paths import PROFILE_BEARISH_PATH, PROFILE_BULLISH_PATH
+from paths import HEADER_BEARISH_PATH, HEADER_BULLISH_PATH
+
+
+class ConfigurationError(Exception):
+    pass
 
 
 class Configuration:
-    def __init__(self, config_path):
-        assert isinstance(config_path, Path), "must be a Path type."
-        self.config_path = config_path
-        self.general = dict()
-        self.bullish = dict()
-        self.bearish = dict()
+    def __init__(self):
+        self.key = config("CONSUMER_KEY")
+        self.secret = config("CONSUMER_SECRET")
+        self.token = config("ACCESS_KEY")
+        self.token_secret = config("ACCESS_SECRET")
 
-    @property
-    def config_file_path(self):
-        return self.config_path / "config.toml"
+        # TODO: add a twitter cred check, might get the username from here
+        # or maybe keep this decoupled from the twitter handler
 
-    def load_config(self):
-        if not self.config_file_path.exists():
-            print(f"{self.config_file_path} not found.")
-            self.config_file_path.touch()
-            self.create_new_config()
+        self.control_profile_image = config("CONTROL_PROFILE_IMAGE", cast=bool)
+        self.control_header_image = config("CONTROL_HEADER_IMAGE", cast=bool)
+        self.control_profile_color = config("CONTROL_PROFILE_COLOR", cast=bool)
+        self.control_profile_description = config("CONTROL_PROFILE_DESCRIPTION", cast=bool)
+        self.add_username_suffix = config("ADD_USERNAME_SUFFIX", cast=bool)
 
-        with open(str(self.config_file_path), "r") as f:
-            data = toml.loads(f.read())
+        if self.control_profile_image:
+            self.check_path_images(
+                PROFILE_BULLISH_PATH, expected_width=400, expected_height=400, max_bytes=2024
+            )
+            self.check_path_images(
+                PROFILE_BEARISH_PATH, expected_width=400, expected_height=400, max_bytes=2024
+            )
 
+        if self.control_header_image:
+            # FIND MAX SIZE
+            self.check_path_images(
+                HEADER_BULLISH_PATH, expected_width=1500, expected_height=500, max_bytes=4048
+            )
+            self.check_path_images(
+                HEADER_BEARISH_PATH, expected_width=1500, expected_height=500, max_bytes=4048
+            )
+
+        if self.control_profile_color:
+            print("Checking for bullish and bearish profile colors.")
+            self.check_required_setting_exists("BULLISH_PROFILE_LINK_COLOR")
+            self.check_required_setting_exists("BEARISH_PROFILE_LINK_COLOR")
+
+            check_rgb_format(config("BULLISH_PROFILE_LINK_COLOR"))
+            check_rgb_format(config("BEARISH_PROFILE_LINK_COLOR"))
+
+        if self.control_profile_description:
+            # TODO: CHECK LESS THAN MAX CHARS LEN
+            print("Checking profile description.")
+            self.check_required_setting_exists("BULLISH_PROFILE_DESCRIPTION")
+            self.check_required_setting_exists("BEARISH_PROFILE_DESCRIPTION")
+
+        if self.add_username_suffix:
+            # TODO CHECK that username + space + suffix < max char len
+            print("username_suffix check")
+            self.check_required_setting_exists("PROFILE_USERNAME")
+            self.check_required_setting_exists("BULLISH_PROFILE_USERNAME_SUFFIX")
+            self.check_required_setting_exists("BEARISH_PROFILE_USERNAME_SUFFIX")
+
+    @staticmethod
+    def check_path_images(image_path, **kwargs):
+        print(f"Checking '{image_path}' has png image files.")  # TODO: LOGGING
+        images = list(image_path.glob("*.png"))
+        if len(images) < 0:
+            raise ConfigurationError(f"Please add a png image to {image_path}.")
+        print(kwargs)
+        for image in images:
+            check_image_dimensions(image, **kwargs)
+            check_image_file_size(image, **kwargs)
+
+    @staticmethod
+    def check_required_setting_exists(setting):
+        print(f"Checking {setting} exists.")
         try:
-            self.general = data["GENERAL"]
-            self.bullish = data["BULLISH"]
-            self.bearish = data["BEARISH"]
-
-        except KeyError:
-            self.create_new_config()
-
-    def create_new_config(self):
-        general = dict()
-        bullish = dict()
-        bearish = dict()
-        general["twitter_name"] = ""
-        general["update_interval"] = "1H"
-
-        bullish["twitter_name_bullish_suffix"] = "[PUMPIT]"
-        bullish["twitter_bullish_description"] = "To the moon!!!!"
-        bullish["twitter_bullish_profile_color"] = "#00AA00"
-
-        bearish["twitter_name_bearish_suffix"] = "[DUMPIT]"
-        bearish["twitter_bearish_description"] = "Should have sold. :("
-        bearish["twitter_bearish_profile_color"] = "#AA0000"
-
-        data = dict()
-        data["GENERAL"] = general
-        data["BULLISH"] = bullish
-        data["BEARISH"] = bearish
-
-        with open(str(self.config_file_path), "w") as f:
-            f.write(toml.dumps(data))
+            if len(config(setting).strip()) < 1:
+                raise ConfigurationError(f"Please add a {setting} setting to the .env file.")
+        except UndefinedValueError:
+            raise ConfigurationError(f"Please add a {setting} setting to the .env file.")
 
 
-c = Path("")
-config = Configuration(c)
-config.load_config()
-# config.create_new_config()
+conf = Configuration()
