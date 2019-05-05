@@ -6,6 +6,10 @@ from paths import BANNER_BULLISH_PATH, BANNER_BEARISH_PATH
 from paths import PROFILE_BULLISH_PATH, PROFILE_BEARISH_PATH
 import btc
 
+import logme
+
+profile_logger = logme.log(scope="module", name="profile")
+
 
 class BitcoinTwitterProfile(MarketState):
     def __init__(self):
@@ -27,18 +31,22 @@ class BitcoinTwitterProfile(MarketState):
             return "bullish"
 
     def transition_bullish(self):
-        print("going bullish")
+        profile_logger.info("transitioning to bullish state.")
         image, banner, color, description, suffix = self.config.options
         if image:
             self.twitter_profile.set_profile_image(path=PROFILE_BULLISH_PATH)
+
         if banner:
             self.twitter_profile.set_profile_banner(path=BANNER_BULLISH_PATH)
+
         if color:
             self.twitter_profile.set_profile_color(color=config("BULLISH_PROFILE_LINK_COLOR"))
+
         if description:
             self.twitter_profile.set_profile_description(
                 description=config("BULLISH_PROFILE_DESCRIPTION")
             )
+
         if suffix:
             self.twitter_profile.set_profile_username_suffix(
                 username=config("PROFILE_USERNAME"),
@@ -46,18 +54,22 @@ class BitcoinTwitterProfile(MarketState):
             )
 
     def transition_bearish(self):
-        print("going bearish")
+        profile_logger.info("transitioning to bearish state.")
         image, banner, color, description, suffix = self.config.options
         if image:
             self.twitter_profile.set_profile_image(path=PROFILE_BEARISH_PATH)
+
         if banner:
             self.twitter_profile.set_profile_banner(path=BANNER_BEARISH_PATH)
+
         if color:
             self.twitter_profile.set_profile_color(color=config("BEARISH_PROFILE_LINK_COLOR"))
+
         if description:
             self.twitter_profile.set_profile_description(
                 description=config("BEARISH_PROFILE_DESCRIPTION")
             )
+
         if suffix:
             self.twitter_profile.set_profile_username_suffix(
                 username=config("PROFILE_USERNAME"),
