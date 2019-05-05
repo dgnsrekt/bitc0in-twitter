@@ -4,7 +4,6 @@ from config import Configuration
 from decouple import config
 from paths import BANNER_BULLISH_PATH, BANNER_BEARISH_PATH
 from paths import PROFILE_BULLISH_PATH, PROFILE_BEARISH_PATH
-import btc
 
 import logme
 

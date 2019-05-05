@@ -1,6 +1,8 @@
 import click
 from core import BitcoinTwitterProfile
 from time import sleep
+import schedule
+import btc
 
 
 @click.group()
@@ -14,6 +16,26 @@ def cli():
 def run():
     """Run Program"""
     print("RUNNING>>>")
+    bitcoin_percent_change = btc.get_percent_change()
+    profile = BitcoinTwitterProfile(bitcoin_percent_change=bitcoin_percent_change)
+    print(bitcoin_percent_change)
+
+    def job():
+        bitcoin_percent_change = btc.get_percent_change()
+        state = profile.get_market_state(bitcoin_percent_change)
+        print("state", state, "btc:", bitcoin_percent_change)
+
+        if state == "bearish":
+            profile.dumping()
+        else:
+            profile.pumping()
+
+    schedule.every(1).minutes.do(job)
+
+    while True:
+        schedule.run_pending()
+        sleep(1)
+        print(".", end="", flush=True)
 
 
 @cli.command()

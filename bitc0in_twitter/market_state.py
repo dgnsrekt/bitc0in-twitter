@@ -6,7 +6,7 @@ from abc import abstractmethod, ABCMeta
 
 class MarketState(metaclass=ABCMeta):
 
-    states = ["bullish", "bearish"]
+    states = ["bullish", "bearish"]  # TODO add inital state
 
     def __init__(self, initial_state):
         self.machine = Machine(model=self, states=MarketState.states, initial=initial_state)
