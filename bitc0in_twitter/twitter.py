@@ -3,7 +3,7 @@
 import tweepy
 
 
-class Twitter:
+class TwitterHandler:
     def __init__(self, *, key, secret, token, token_secret):
         # Preparing OAuth authentication
         self.auth = tweepy.OAuthHandler(key, secret)
