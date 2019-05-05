@@ -19,6 +19,7 @@ luigi = "*"
 prompt-toolkit = "*"
 python-decouple = "*"
 pillow = "*"
+logme = "*"
 
 [requires]
 python_version = "3.7"

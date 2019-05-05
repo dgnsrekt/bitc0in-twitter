@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bcd64290c5142844da9cfc14d899053d5d65568e342b24cea1b993994cec4ce3"
+            "sha256": "8bd001d4bed44e016da54f49d34f05efc7be707abb105e541811dddf32942215"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -66,13 +66,20 @@
             ],
             "version": "==19.1.0"
         },
+        "bnmutils": {
+            "hashes": [
+                "sha256:62fef049f3b83d120573c5eb823862a746cc2d9e6c50ebd95976ab2ffb831c0f",
+                "sha256:bf21ac21e04aa1db35160bb38690e22d8d10571b6dd1364c331cdb7031f14021"
+            ],
+            "version": "==1.0.3"
+        },
         "ccxt": {
             "hashes": [
-                "sha256:662836c21027d88017efb0c08ae681899f6a96b27f95789b05c92f62c805f1ec",
-                "sha256:82569e358a3479874e5c176e1380c53137c36ddded3f10e31d0b3dc11d24562a"
+                "sha256:274657d325fd7174e236d8bc8b4669c22ea4b48a772466405143b14a68fbd138",
+                "sha256:48293035c7baa376f8456bf2f8b2a9c02c6b080890e505f798c70a1d3b59d0c9"
             ],
             "index": "pypi",
-            "version": "==1.18.497"
+            "version": "==1.18.507"
         },
         "certifi": {
             "hashes": [
@@ -150,6 +157,14 @@
                 "sha256:6c3cb24f344923d30b2785d5ad75182c8ea7ac1b6171b08657258ec7429d50fa"
             ],
             "version": "==0.12.2"
+        },
+        "logme": {
+            "hashes": [
+                "sha256:320006cf6c7898ca76698b48f9a40fb172bdafd713a1c942baaa70efcb6c7338",
+                "sha256:c1f0a7f72750669fba500920aadcd10a665c3bc176425c0de97cdd7b5b19e65f"
+            ],
+            "index": "pypi",
+            "version": "==1.3.2"
         },
         "luigi": {
             "hashes": [
@@ -356,10 +371,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:4c291ca23bbb55c76518905869ef34bdd5f0e46af7afe6861e8375643ffee1a0",
-                "sha256:9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
+                "sha256:2393a695cd12afedd0dcb26fe5d50d0cf248e5a66f75dbd89a3d4eb333a61af4",
+                "sha256:a637e5fae88995b256e3409dc4d52c2e2e0ba32c42a6365fee8bbd2238de3cfb"
             ],
-            "version": "==1.24.2"
+            "version": "==1.24.3"
         },
         "wcwidth": {
             "hashes": [
