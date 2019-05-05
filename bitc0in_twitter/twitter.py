@@ -4,7 +4,10 @@ import tweepy
 from random import choice
 from decouple import config
 
+import logme
 
+
+@logme.log
 class TwitterHandler:
     def __init__(self, *, key, secret, token, token_secret):
         # Preparing OAuth authentication
@@ -19,20 +22,25 @@ class TwitterHandler:
 
     def set_profile_image(self, *, path):
         image = str(choice(list(path.glob("*.png"))))
+        self.logger.debug(f"Setting profile image to {image}.")
         self.api.update_profile_image(image)
 
     def set_profile_banner(self, *, path):
         banner = str(choice(list(path.glob("*.png"))))
+        self.logger.debug(f"Setting profile banner to {banner}.")
         self.api.update_profile_banner(banner)
 
     def set_profile_color(self, *, color):
+        self.logger.debug(f"Setting profile color to {color}.")
         self.api.update_profile(profile_link_color=color)
 
     def set_profile_description(self, *, description):
+        self.logger.debug(f"Setting profile description to {description}.")
         self.api.update_profile(description=description)
 
     def set_profile_username_suffix(self, *, username, suffix):
         name = f"{username}{suffix}"
+        self.logger.debug(f"Setting profile name to {name}.")
         self.api.update_profile(name=name)
 
 
