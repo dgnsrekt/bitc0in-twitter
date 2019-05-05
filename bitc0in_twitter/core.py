@@ -12,9 +12,9 @@ profile_logger = logme.log(scope="module", name="profile")
 
 
 class BitcoinTwitterProfile(MarketState):
-    def __init__(self):
-        initial_direction = self.get_market_direction()
-        super().__init__(initial_state=initial_direction)
+    def __init__(self, *, bitcoin_percent_change):
+        initial_state = self.get_market_state(bitcoin_percent_change)
+        super().__init__(initial_state=initial_state)
 
         self.config = Configuration()
         key, secret, token, token_secret = self.config.get_twitter_keys()
@@ -24,8 +24,8 @@ class BitcoinTwitterProfile(MarketState):
         )
 
     @staticmethod
-    def get_market_direction():
-        if btc.get_percent_change() < 0:
+    def get_market_state(bitcoin_percent_change):
+        if bitcoin_percent_change < 0:
             return "bearish"
         else:
             return "bullish"
@@ -75,15 +75,3 @@ class BitcoinTwitterProfile(MarketState):
                 username=config("PROFILE_USERNAME"),
                 suffix=config("BEARISH_PROFILE_USERNAME_SUFFIX"),
             )
-
-
-from time import sleep
-
-bms = BitcoinTwitterProfile()
-print(bms.state)
-sleep(5)
-bms.dumping()
-print(bms.state)
-sleep(5)
-bms.pumping()
-print(bms.state)
