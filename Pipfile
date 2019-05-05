@@ -4,9 +4,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-black = "*"
 pytest-watch = "*"
 flake8 = "*"
+black = "*"
 
 [packages]
 ccxt = "*"
@@ -18,6 +18,7 @@ toml = "*"
 luigi = "*"
 prompt-toolkit = "*"
 python-decouple = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
