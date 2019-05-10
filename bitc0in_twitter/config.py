@@ -1,5 +1,5 @@
 from decouple import config, UndefinedValueError
-from utilities import check_image_dimensions, check_image_file_size, check_rgb_format
+from utilities import check_image_dimensions, check_image_file_size, check_hex_color_format
 
 from paths import PROFILE_BEARISH_PATH, PROFILE_BULLISH_PATH
 from paths import BANNER_BEARISH_PATH, BANNER_BULLISH_PATH
@@ -62,8 +62,8 @@ class Configuration:
             self.check_required_setting_exists("BULLISH_PROFILE_LINK_COLOR")
             self.check_required_setting_exists("BEARISH_PROFILE_LINK_COLOR")
 
-            check_rgb_format(config("BULLISH_PROFILE_LINK_COLOR"))
-            check_rgb_format(config("BEARISH_PROFILE_LINK_COLOR"))
+            check_hex_color_format(config("BULLISH_PROFILE_LINK_COLOR"))
+            check_hex_color_format(config("BEARISH_PROFILE_LINK_COLOR"))
             config_logger.info("Profile color configuration has been set.")
 
         if self.options.description:
