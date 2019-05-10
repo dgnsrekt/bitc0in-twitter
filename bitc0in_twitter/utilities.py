@@ -5,7 +5,7 @@ class ImageError(Exception):
     pass
 
 
-def check_image_dimensions(image, *, expected_width, expected_height, **kwargs):
+def check_image_dimensions(image: str, *, expected_width: int, expected_height: int, **kwargs):
     with Image.open(image) as img:
         width, height = img.size
 
@@ -15,7 +15,7 @@ def check_image_dimensions(image, *, expected_width, expected_height, **kwargs):
         raise ImageError(f"{image} height is {height} and should be {expected_height}.")
 
 
-def check_image_file_size(image, *, max_bytes, **kwargs):
+def check_image_file_size(image: str, *, max_bytes: int, **kwargs):
     image_bytes = image.stat().st_size
     if image_bytes > max_bytes:
         raise ImageError(f"{image} size is {image_bytes} bytes and should be {max_bytes} bytes.")
