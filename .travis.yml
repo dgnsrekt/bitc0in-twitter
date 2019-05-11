@@ -2,10 +2,6 @@ dist: xenial   # required for Python >= 3.7
 language: python
 python:
   - "3.7"
-  - "3.7-dev"  # 3.7 development branch
-  - "3.8-dev"  # 3.8 development branch
-  - "nightly"  # nightly build
 install:
-  - 'pip install pipenv'
-  - 'pipenv install'
-script: 'python -m pytest --disable-warnings'
+  - 'pip install nox'
+script: nox

@@ -23,7 +23,7 @@ def tests(session):
     for pack in REQUIRES:
         session.install(pack)
     session.install("pytest")
-    session.run("pytest")
+    session.run("pytest", "--disable-warnings")
 
 
 @nox.session(python="3.7")
