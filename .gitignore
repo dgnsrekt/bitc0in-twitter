@@ -91,5 +91,8 @@ ENV/
 *.npy
 *.pkl
 
+# nox
+.nox
+
 # Project specific
 secret.keys

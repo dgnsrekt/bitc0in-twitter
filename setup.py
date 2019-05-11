@@ -12,6 +12,9 @@ with open(PIPFILE, encoding="utf-8") as pipfile_lock:
     development_packages = pipfile_json["develop"]
     python_version = pipfile_json["_meta"]["requires"]["python_version"]
 
+REQUIRES = []
+for package, v in required_packages.items():
+    REQUIRES.append(package + v["version"])
 
 # Package meta-data
 NAME = ROOT_PATH.name
