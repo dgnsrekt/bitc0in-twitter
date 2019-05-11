@@ -28,6 +28,6 @@ def tests(session):
 
 @nox.session(python="3.7")
 def lint(session):
-    session.install("flake8")
-    session.chdir("bitc0in_twitter")
-    session.run("flake8", "*.py")
+    session.install("flake8", "flake8-import-order", "black")
+    session.run("black", "--line-length", "99", "--check", ".")
+    session.run("flake8", "bitc0in_twitter/*.py")
