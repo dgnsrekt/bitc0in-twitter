@@ -19,13 +19,17 @@ class TwitterHandler:
         # Creates a connection to the users profile
         self.user = self.api.me()
 
+    @staticmethod
+    def choose_random_png_from_path(path):
+        return str(choice(list(path.glob("*.png"))))
+
     def set_profile_image(self, *, path):
-        image = str(choice(list(path.glob("*.png"))))
+        image = self.choose_random_png_from_path(path)
         self.logger.debug(f"Setting profile image to {image}.")
         self.api.update_profile_image(image)
 
     def set_profile_banner(self, *, path):
-        banner = str(choice(list(path.glob("*.png"))))
+        banner = self.choose_random_png_from_path(path)
         self.logger.debug(f"Setting profile banner to {banner}.")
         self.api.update_profile_banner(banner)
 
