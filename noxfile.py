@@ -1,7 +1,7 @@
 import nox
 
 
-@nox.session(python="3.7")
+@nox.session
 def tests(session):
     """Running tests."""
     session.install("pipenv")
@@ -9,7 +9,7 @@ def tests(session):
     session.run("pipenv", "run", "pytest", "--disable-warnings")
 
 
-@nox.session(python="3.7")
+@nox.session
 def lint(session):
     """Linting using black/flake8"""
     session.install("flake8", "flake8-import-order", "black")
