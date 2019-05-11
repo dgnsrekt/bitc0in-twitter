@@ -1,11 +1,14 @@
-from decouple import config, UndefinedValueError
-from utilities import check_image_dimensions, check_image_file_size, check_hex_color_format
-
-from paths import PROFILE_BEARISH_PATH, PROFILE_BULLISH_PATH
-from paths import BANNER_BEARISH_PATH, BANNER_BULLISH_PATH
 from collections import namedtuple
 
+from decouple import UndefinedValueError, config
+
 import logme
+
+from paths import BANNER_BEARISH_PATH, BANNER_BULLISH_PATH
+from paths import PROFILE_BEARISH_PATH, PROFILE_BULLISH_PATH
+
+from utilities import check_hex_color_format, check_image_dimensions, check_image_file_size
+
 
 config_logger = logme.log(scope="module", name="config")
 

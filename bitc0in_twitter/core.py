@@ -1,11 +1,16 @@
-from market_state import MarketState
-from twitter import TwitterHandler
 from config import Configuration
+
 from decouple import config
-from paths import BANNER_BULLISH_PATH, BANNER_BEARISH_PATH
-from paths import PROFILE_BULLISH_PATH, PROFILE_BEARISH_PATH
 
 import logme
+
+from market_state import MarketState
+
+from paths import BANNER_BEARISH_PATH, BANNER_BULLISH_PATH
+from paths import PROFILE_BEARISH_PATH, PROFILE_BULLISH_PATH
+
+from twitter import TwitterHandler
+
 
 profile_logger = logme.log(scope="module", name="profile")
 

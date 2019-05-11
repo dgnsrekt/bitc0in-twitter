@@ -20,6 +20,7 @@ for package, v in required_packages.items():
 
 @nox.session(python="3.7")
 def tests(session):
+    "Running tests."
     for pack in REQUIRES:
         session.install(pack)
     session.install("pytest")
@@ -28,6 +29,7 @@ def tests(session):
 
 @nox.session(python="3.7")
 def lint(session):
+    "Linting using black/flake8"
     session.install("flake8", "flake8-import-order", "black")
     session.run("black", "--line-length", "99", "--check", ".")
-    session.run("flake8", "bitc0in_twitter/*.py")
+    session.run("flake8", "bitc0in_twitter")

@@ -1,8 +1,12 @@
-import click
-from core import BitcoinTwitterProfile
 from time import sleep
-import schedule
+
 import btc
+
+import click
+
+from core import BitcoinTwitterProfile
+
+import schedule
 
 
 @click.group()

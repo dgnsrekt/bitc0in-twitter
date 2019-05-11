@@ -1,7 +1,8 @@
 # This module provides functionality dealing with state.
 
+from abc import ABCMeta, abstractmethod
+
 from transitions import Machine
-from abc import abstractmethod, ABCMeta
 
 
 class MarketState(metaclass=ABCMeta):

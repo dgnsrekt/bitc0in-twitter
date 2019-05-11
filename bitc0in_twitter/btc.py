@@ -1,6 +1,7 @@
 # Provides fuctionality to interact with the bitcoin price.
 
 import ccxt
+
 import logme
 
 bitcoin_logger = logme.log(scope="module", name="bitcoin")

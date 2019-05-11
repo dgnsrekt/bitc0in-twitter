@@ -1,9 +1,10 @@
 # Provides twitter api functionality.
 
-import tweepy
 from random import choice
 
 import logme
+
+import tweepy
 
 
 @logme.log
