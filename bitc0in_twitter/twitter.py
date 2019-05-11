@@ -2,7 +2,6 @@
 
 import tweepy
 from random import choice
-from decouple import config
 
 import logme
 
@@ -44,6 +43,7 @@ class TwitterHandler:
         self.api.update_profile(name=name)
 
 
+# from decouple import config
 # from config import Configuration
 #
 # config = Configuration()
