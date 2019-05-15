@@ -46,23 +46,3 @@ class TwitterHandler:
         name = f"{username}{suffix}"
         self.logger.debug(f"Setting profile name to {name}.")
         self.api.update_profile(name=name)
-
-
-# from decouple import config
-# from config import Configuration
-#
-# config = Configuration()
-# tp = TwitterHandler(
-#     key=config.key, secret=config.secret, token=config.token, token_secret=config.token_secret
-# )
-# from paths import PROFILE_BEARISH_PATH, BANNER_BEARISH_PATH
-#
-# tp.set_profile_image(path=PROFILE_BEARISH_PATH)
-# tp.set_profile_banner(path=BANNER_BEARISH_PATH)
-# # image, banner, username, desc, color
-# print(tp.user.name)
-# print(tp.user.screen_name)
-# print(tp.user.description)
-# print(tp.user.profile_banner_url)
-# print(tp.user.profile_image_url)
-# print(tp.user.profile_link_color)

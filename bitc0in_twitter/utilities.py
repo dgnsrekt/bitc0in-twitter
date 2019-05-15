@@ -49,10 +49,3 @@ def check_hex_color_format(color: str):
 
     if len(color) != 7:
         raise ValueError(f"{color} should be in rgb hex format. Example: #00FF11.")
-
-
-# from paths import PROFILE_BEARISH_PATH, PROFILE_BULLISH_PATH
-# photo = list(PROFILE_BEARISH_PATH.glob("*.png"))[0]
-# check_image_dimensions(photo, expected_width=400, expected_height=400)
-# check_image_file_size(photo, max_bytes=2048)
-# check_hex_color_format("#00FFb1")
