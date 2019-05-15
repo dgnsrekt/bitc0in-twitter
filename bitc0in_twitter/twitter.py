@@ -1,10 +1,9 @@
 # Provides twitter api functionality.
 
+from pathlib import Path
 from random import choice
 
 import logme
-
-from pathlib import Path
 
 import tweepy
 
