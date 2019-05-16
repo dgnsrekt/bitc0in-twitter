@@ -11,7 +11,8 @@ from bitc0in_twitter.utilities import (
 @pytest.fixture
 def image_fixture():
     TEST_IMAGE_FOLDER = Path(__file__).parent / "images"
-    bad, good = list(TEST_IMAGE_FOLDER.glob("*"))
+    bad = TEST_IMAGE_FOLDER / "bad.jpg"
+    good = TEST_IMAGE_FOLDER / "goodprofile.png"
     yield bad, good
 
 
