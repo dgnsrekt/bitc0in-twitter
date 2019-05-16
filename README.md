@@ -54,6 +54,8 @@ Commands:
 
 #### HEROKU
 
+#### TODO
+Add JPG format
 
 ### ENV VARS
 ---------
