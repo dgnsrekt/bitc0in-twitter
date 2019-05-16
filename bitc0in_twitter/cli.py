@@ -10,7 +10,7 @@ import schedule
 
 
 @click.group()
-def cli():
+def bitc0in_twitter():
     """
     Syncs your twitter profile with bitcoin's volatility.
     """

@@ -1,0 +1,11 @@
+include .flake8
+include README.md
+include LICENSE
+include pytest.ini
+include Pipfile
+include Pipfile.lock
+include logme.ini
+
+recursive-include images *
+recursive-include tests/images *
+recursive-include tests *.py
