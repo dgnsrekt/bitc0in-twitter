@@ -4,10 +4,10 @@ from decouple import config
 
 import logme
 
-from market_state import MarketState
-
 from paths import BANNER_BEARISH_PATH, BANNER_BULLISH_PATH
 from paths import PROFILE_BEARISH_PATH, PROFILE_BULLISH_PATH
+
+from state import MarketState
 
 from twitter import TwitterHandler
 
