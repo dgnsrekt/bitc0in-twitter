@@ -93,9 +93,9 @@ class Configuration:
         images = list(image_path.glob("*.png"))
         if len(images) < 0:
             raise ConfigurationError(f"Please add a png image to {image_path}.")
-        for image in images:
-            check_image_dimensions(image, **kwargs)
-            check_image_file_size(image, **kwargs)
+        # for image in images:
+        # check_image_dimensions(image, **kwargs)
+        # check_image_file_size(image, **kwargs)
 
     @staticmethod
     def check_required_setting_exists(setting):
