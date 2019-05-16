@@ -18,16 +18,13 @@ def bitc0in_twitter():
 
 @bitc0in_twitter.command()
 def run():
-    """Run Program"""
-    print("RUNNING>>>")
+    """Start Program"""
     bitcoin_percent_change = btc.get_percent_change()
     profile = BitcoinTwitterProfile(bitcoin_percent_change=bitcoin_percent_change)
-    print(bitcoin_percent_change)
 
     def job():
         bitcoin_percent_change = btc.get_percent_change()
         state = profile.get_market_state(bitcoin_percent_change)
-        print("state", state, "btc:", bitcoin_percent_change)
 
         if state == "bearish":
             profile.dumping()
@@ -44,17 +41,17 @@ def run():
 
 @bitc0in_twitter.command()
 def test():
-    """Tests that all connections work."""
-    print("TESTING!!!")
+    """Tests everything is setup correctly."""
+    click.echo("TESTING!!!")
     bms = BitcoinTwitterProfile(bitcoin_percent_change=5)
     bms.dumping()
-    print("check the for bearish profile")
-    print("state:", bms.state)
-    print("Sleeping for 15 seconds.")
+    click.echo("check the for bearish profile")
+    click.echo(f"state: {bms.state}")
+    click.echo("Sleeping for 15 seconds.")
     sleep(15)
     bms.pumping()
-    print("check the for bullish profile")
-    print("state:", bms.state)
+    click.echo("check the for bullish profile")
+    click.echo(f"state: {bms.state}")
     sleep(15)
     bms.dumping()
 
