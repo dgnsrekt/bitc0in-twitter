@@ -14,3 +14,10 @@ https://blog.photofeeler.com/twitter-profile-picture-size/
 
 GUIDE FOR ACCESS TOKENS
 https://developer.twitter.com/en/docs/basics/authentication/guides/access-tokens.html
+
+ENV VARS
+---------
+CONSUMER_KEY = ""
+CONSUMER_SECRET =""
+ACCESS_KEY = ""
+ACCESS_SECRET = ""
