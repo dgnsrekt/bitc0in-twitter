@@ -11,5 +11,5 @@ install:
 script: nox
 
 branches:
-    only:
-        - master
+  only:
+  - master
