@@ -20,6 +20,7 @@ class TwitterHandler:
 
     @property
     def user(self):
+        """The latests status of the users profile."""
         return self.api.me()
 
     @staticmethod
