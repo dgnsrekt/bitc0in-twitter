@@ -9,3 +9,7 @@ python:
 install:
   - 'pip install nox'
 script: nox
+
+branches:
+    only:
+        - master
