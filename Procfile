@@ -1,1 +1,1 @@
-worker: python3 bitcoin_twitter.cli test
+worker: python3 bitc0in_twitter test
