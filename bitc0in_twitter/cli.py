@@ -16,7 +16,7 @@ def bitc0in_twitter():
     """
 
 
-@cli.command()
+@bitc0in_twitter.command()
 def run():
     """Run Program"""
     print("RUNNING>>>")
@@ -42,7 +42,7 @@ def run():
         # print(".", end="", flush=True)
 
 
-@cli.command()
+@bitc0in_twitter.command()
 def test():
     """Tests that all connections work."""
     print("TESTING!!!")
@@ -60,4 +60,4 @@ def test():
 
 
 if __name__ == "__main__":
-    cli()
+    bitc0in_twitter()
