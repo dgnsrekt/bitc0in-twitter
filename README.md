@@ -62,6 +62,7 @@ https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings
 https://developer.twitter.com/en/docs/media/upload-media/api-reference/post-media-upload
 https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update_with_media
 loopkup Tweepy Api._pack_image
+rate_limit_status :reference: https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status
 
 
 ### ENV VARS
