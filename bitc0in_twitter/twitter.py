@@ -18,8 +18,9 @@ class TwitterHandler:
         # Creating API interface
         self.api = tweepy.API(self.auth)
 
-        # Creates a connection to the users profile
-        self.user = self.api.me()
+    @property
+    def user(self):
+        return self.api.me()
 
     @staticmethod
     def choose_random_png_from_path(path: Path) -> str:
