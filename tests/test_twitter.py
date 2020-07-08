@@ -74,24 +74,10 @@ def test_profile_color(TwitterFixture):
 @pytest.mark.online
 def test_set_profile_description(TwitterFixture):
     t_before = TwitterFixture.user.description
-    TwitterFixture.set_profile_description(description="testing_description")
+    TwitterFixture.set_profile_description(description="testing description")
     t_after = TwitterFixture.user.description
     assert t_before != t_after
 
     TwitterFixture.set_profile_description(description=t_before)
     t_clean = TwitterFixture.user.description
-    assert t_before == t_clean
-
-
-@pytest.mark.online
-def test_set_username_suffix(TwitterFixture):
-    t_before = TwitterFixture.user.name
-    suffix = "testsuffix"
-    TwitterFixture.set_profile_username_suffix(username=t_before, suffix=suffix)
-    t_after = TwitterFixture.user.name
-    assert t_before != t_after
-    assert t_after == t_before + suffix
-
-    TwitterFixture.set_profile_username_suffix(username=t_before, suffix="")
-    t_clean = TwitterFixture.user.name
     assert t_before == t_clean
