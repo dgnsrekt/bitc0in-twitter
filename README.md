@@ -114,7 +114,7 @@ ACCESS_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 TODO: add arrows and bearish example.
 
 ![alt text](/docs/images/bullish_profile.png)
-![alt text](/docs/images/bullish_profile.png)
+![alt text](/docs/images/bearish_profile.png)
 
 #### docker-compose.yml example
 ```
