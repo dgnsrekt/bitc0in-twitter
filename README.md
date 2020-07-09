@@ -142,6 +142,12 @@ secrets:
 
 ```
 ---
+
+### Step 5.
+```
+$ docker-compose up
+```
+
 ### HEROKU
 
 
