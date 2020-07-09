@@ -105,7 +105,7 @@ ACCESS_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 * BEARISH_PROFILE_LINK_COLOR: [hex color string] - bearish profile link color
 * BULLISH_PROFILE_DESCRIPTION: [string] - bullish description
 * BEARISH_PROFILE_DESCRIPTION: [string] - bearish description
-* PROFILE_USERNAME: [string] - the profile username
+* PROFILE_USERNAME: [string] - the profile username TODO: add bullish and bearish username feature.
 * MODE: [string] - `run` / `test`
  * `run` mode - starts the bot.
  * `test` mode - allows you to test if the [bullish/bearish] profiles are configured correctly. It will load the bullish profile wait for 15 seconds to allow you to refresh the page and then transition to the bearish state.
