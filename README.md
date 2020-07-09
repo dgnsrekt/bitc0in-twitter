@@ -44,7 +44,7 @@ $ git clone git@github.com:dgnsrekt/bitc0in-twitter.git
 ```
 ---
 ### Step 2. Copy your [bullish/bearish] banners and profile pictures into the images/banners folder.
-The banners must be in .png format. You can name them what ever you want and add as many bullish and bearish versions as you would like. When transiting from bullish and bearish states the bot will randomly choose from each folder. Use the following guides to help you create the correct profile and banner with the appropriate dimensions.
+The images must be in .png format. You can name them what ever you want and add as many versions as you would like. When transiting between bullish and bearish states the bot will randomly choose an image from the current states folder. Use the following guides to help you with the profile and banner image dimensions.
 
 [GUIDE TO BUILDING HEADER PICTURE](https://blog.snappa.com/twitter-header-size/)
 
@@ -95,7 +95,7 @@ ACCESS_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ```
 ---
-### Step 4. Update the following environmental variables in the docker-compose.yml file.
+### Step 4. Update environmental variables in the docker-compose.yml file.
 
 * CONTROL_PROFILE_IMAGE: [bool] - changes profile pic on price update
 * CONTROL_BANNER_IMAGE: [bool] - changes profile banner picture on price update
