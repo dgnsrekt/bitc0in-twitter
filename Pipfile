@@ -6,7 +6,8 @@ verify_ssl = true
 [dev-packages]
 pytest-watch = "*"
 flake8 = "*"
-black = "*"
+black = "==19.10.b0"
+
 
 [packages]
 ccxt = "*"

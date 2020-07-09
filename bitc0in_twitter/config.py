@@ -19,9 +19,9 @@ class ConfigurationError(Exception):
 
 class Configuration:
     ConfigurationOptions = namedtuple(
-        "ConfigurationOptions", ["image", "banner", "color", "description", "suffix"]
+        "ConfigurationOptions", ["image", "banner", "color", "description"]
     )
-    ConfigurationOptions.__new__.__defaults__ = (False, False, False, False, False)
+    ConfigurationOptions.__new__.__defaults__ = (False, False, False, False)
 
     def __init__(self):
         self.key = config("CONSUMER_KEY")
@@ -33,11 +33,8 @@ class Configuration:
         banner = config("CONTROL_BANNER_IMAGE", cast=bool)
         color = config("CONTROL_PROFILE_COLOR", cast=bool)
         description = config("CONTROL_PROFILE_DESCRIPTION", cast=bool)
-        suffix = config("ADD_USERNAME_SUFFIX", cast=bool)
 
-        self.options = Configuration.ConfigurationOptions(
-            image, banner, color, description, suffix
-        )
+        self.options = Configuration.ConfigurationOptions(image, banner, color, description)
 
         if self.options.image:
             config_logger.debug("Checking profile picture images are configured.")
@@ -75,14 +72,6 @@ class Configuration:
             self.check_required_setting_exists("BULLISH_PROFILE_DESCRIPTION")
             self.check_required_setting_exists("BEARISH_PROFILE_DESCRIPTION")
             config_logger.info("Profile description has been set.")
-
-        if self.options.suffix:
-            # TODO CHECK that username + space + suffix < max char len
-            config_logger.debug("Checking username_suffix has been configured.")
-            self.check_required_setting_exists("PROFILE_USERNAME")
-            self.check_required_setting_exists("BULLISH_PROFILE_USERNAME_SUFFIX")
-            self.check_required_setting_exists("BEARISH_PROFILE_USERNAME_SUFFIX")
-            config_logger.info("Username Suffix has been set.")
 
     def get_twitter_keys(self):
         return self.key, self.secret, self.token, self.token_secret
