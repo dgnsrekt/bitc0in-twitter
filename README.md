@@ -182,3 +182,5 @@ https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-
 
 loopkup Tweepy Api._pack_image
 rate_limit_status :reference: https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status
+
+Rest api and oauth auth.
