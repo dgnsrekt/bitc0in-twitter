@@ -65,13 +65,3 @@ class TwitterHandler:
         """
         self.logger.debug(f"Setting profile description to {description}.")
         self.api.update_profile(description=description)
-
-    def set_profile_username_suffix(self, *, username: str, suffix: str) -> None:
-        """Addes a suffix to the twitter profiles username.
-
-        :param username: The username of the twitter page.
-        :param suffix: The custom suffix to append to the username.
-        """
-        name = f"{username}{suffix}"
-        self.logger.debug(f"Setting profile name to {name}.")
-        self.api.update_profile(name=name)

@@ -41,7 +41,7 @@ class BitcoinTwitterProfile(MarketState):
 
     def transition_bullish(self):
         profile_logger.info("transitioning to bullish state.")
-        image, banner, color, description, suffix = self.config.options
+        image, banner, color, description = self.config.options
         if image:
             self.twitter_profile.set_profile_image(path=PROFILE_BULLISH_PATH)
 
@@ -56,15 +56,9 @@ class BitcoinTwitterProfile(MarketState):
                 description=config("BULLISH_PROFILE_DESCRIPTION")
             )
 
-        if suffix:
-            self.twitter_profile.set_profile_username_suffix(
-                username=config("PROFILE_USERNAME"),
-                suffix=config("BULLISH_PROFILE_USERNAME_SUFFIX"),
-            )
-
     def transition_bearish(self):
         profile_logger.info("transitioning to bearish state.")
-        image, banner, color, description, suffix = self.config.options
+        image, banner, color, description = self.config.options
         if image:
             self.twitter_profile.set_profile_image(path=PROFILE_BEARISH_PATH)
 
@@ -77,10 +71,4 @@ class BitcoinTwitterProfile(MarketState):
         if description:
             self.twitter_profile.set_profile_description(
                 description=config("BEARISH_PROFILE_DESCRIPTION")
-            )
-
-        if suffix:
-            self.twitter_profile.set_profile_username_suffix(
-                username=config("PROFILE_USERNAME"),
-                suffix=config("BEARISH_PROFILE_USERNAME_SUFFIX"),
             )

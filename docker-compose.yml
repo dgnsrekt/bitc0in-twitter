@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+    bitc0in_twitter:
+        build: .
+        secrets:
+            - secret_keys
+        environment:
+            SECRET_NAME: secret_keys
+            CONTROL_PROFILE_IMAGE: "True"
+            CONTROL_BANNER_IMAGE: "True"
+            CONTROL_PROFILE_COLOR: "True"
+            CONTROL_PROFILE_DESCRIPTION: "True"
+            BULLISH_PROFILE_LINK_COLOR: "#00AA00"
+            BEARISH_PROFILE_LINK_COLOR: "#FF001F"
+            BULLISH_PROFILE_DESCRIPTION: "TOO THE MOON!!!"
+            BEARISH_PROFILE_DESCRIPTION: "BITCOIN IS DEAD AGAIN. :("
+            PROFILE_USERNAME: "tester"
+            MODE: "run" # run or test mode
+
+secrets:
+    secret_keys:
+        file: secret_keys
