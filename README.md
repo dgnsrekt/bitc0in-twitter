@@ -35,7 +35,7 @@ Commands:
   run   Run Program
   test  Tests that all connections work.
 ```
-
+documentaion in progress.
 ## QUICK START DOCKER
 
 ### Step 1. Clone the repo.
