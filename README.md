@@ -185,3 +185,7 @@ loopkup Tweepy Api._pack_image
 rate_limit_status :reference: https://developer.twitter.com/en/docs/developer-utilities/rate-limit-status/api-reference/get-application-rate_limit_status
 
 Rest api and oauth auth.
+
+### Contact
+* Twitter = Telegram = Discord = @dgnsrekt
+* Email = dgnsrekt@pm.me
